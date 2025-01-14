@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "phoneBook/csv"
 	"fmt"
 	"os"
 	"path"
@@ -8,19 +9,8 @@ import (
 )
 
 func main() {
-	var data = []c.Entry{
-		{Name: "AKIE", Surname: "EAFGT", Tel: "768"},
-		{Name: "John", Surname: "Doe", Tel: "123"},
-		{Name: "Jane", Surname: "Smith", Tel: "654"},
-		{Name: "Alice", Surname: "Brown", Tel: "987"},
-		{Name: "Bob", Surname: "Johnson", Tel: "456"},
-		{Name: "Charlie", Surname: "Lee", Tel: "321"},
-		{Name: "Diana", Surname: "Taylor", Tel: "789"},
-		{Name: "Eve", Surname: "Harris", Tel: "159"},
-		{Name: "Frank", Surname: "Clark", Tel: "753"},
-		{Name: "Grace", Surname: "Walker", Tel: "852"}}
-		
-	data = append(data, c.Entry{Name: "Matthew", Surname: "Mahlyshev", Tel: "111"})
+	// csv.Run()
+	var data []c.Entry	
 	c.Populate(5, &data)
 	arguments := os.Args
 
