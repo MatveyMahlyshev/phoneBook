@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path"
-	c "phoneBook/crud"
+	c "phoneBook/users"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 		{Name: "Grace", Surname: "Walker", Tel: "852"}}
 		
 	data = append(data, c.Entry{Name: "Matthew", Surname: "Mahlyshev", Tel: "111"})
-	c.Populate(99, &data)
+	c.Populate(5, &data)
 	arguments := os.Args
 
 	if len(arguments) == 1 {

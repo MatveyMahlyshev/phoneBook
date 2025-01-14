@@ -1,8 +1,7 @@
-package crud
+package users
 
 import (
 	"fmt"
-	"strconv"
 )
 
 type Entry struct {
@@ -24,14 +23,4 @@ func Search(key string, data []Entry) *Entry {
 		}
 	}
 	return nil
-}
-
-func Populate(n int, data *[]Entry) {
-	for i := 0; i < n; i++ {
-		*data = append(*data, Entry{
-			Name:    generateData(4),
-			Surname: generateData(5),
-			Tel:     strconv.Itoa(random(100, 999)),
-		})
-	}
 }
