@@ -1,18 +1,11 @@
-package csv
+package users
 
 import (
 	"encoding/csv"
 	"os"
+	"strconv"
+	"time"
 )
-
-type Record struct {
-	Name       string
-	Surname    string
-	Number     string
-	LastAccess string
-}
-
-var MyData = []Record{}
 
 func ReadCSVFile(filepath string) ([][]string, error) {
 	_, err := os.Stat(filepath)
@@ -31,6 +24,10 @@ func ReadCSVFile(filepath string) ([][]string, error) {
 		return [][]string{}, err
 	}
 
+	for _, l := range lines {
+		Data = append(Data, Entry{Name: l[0], Surname: l[1], Tel: l[2], LastAccess: strconv.FormatInt(time.Now().Unix(), 10)})
+	}
+
 	return lines, nil
 }
 
@@ -42,9 +39,9 @@ func SaveCSVFile(filepath string) error {
 	defer csvfile.Close()
 
 	csvwriter := csv.NewWriter(csvfile)
-	csvwriter.Comma = '\t'
-	for _, row := range MyData {
-		temp := []string{row.Name, row.Surname, row.Surname, row.LastAccess}
+	csvwriter.Comma = ','
+	for _, row := range Data {
+		temp := []string{row.Name, row.Surname, row.Tel, row.LastAccess}
 		_ = csvwriter.Write(temp)
 	}
 	csvwriter.Flush()
